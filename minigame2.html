@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>GREEN CIRCLES</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #game-area {
+      width: 300px;
+      height: 300px;
+      margin: 20px auto;
+      background-color: #ddd;
+      position: relative;
+      border: 3px solid #888;
+      border-radius: 10px;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      position: absolute;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    #info {
+      margin-top: 10px;
+    }
+
+    #hadiah {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #hadiah img {
+      width: 200px;
+    }
+
+    #block-screen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      padding-top: 20%;
+      font-size: 24px;
+      z-index: 9999;
+    }
+
+    #start-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Latar belakang gelap */
+  z-index: 1000;
+}
+
+#start-button {
+  background-color: #007bff; /* Warna biru */
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-button:hover {
+  background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+  transform: scale(1.1); /* Efek zoom saat hover */
+}
+  </style>
+</head>
+<body>
+  <h1>TAP A GREEN CIRCLES</h1>
+  <p>Waktu: <span id="timer">30</span> detik | Skor: <span id="score">0</span></p>
+  <div id="game-area"></div>
+  <div id="info"></div>
+
+  <div id="hadiah">
+    <img src="sticker/6.png" alt="Hadiah">
+    <h2>🎁 Kamu Menang! 🎉</h2>
+    <p id="reward-message"></p>
+  </div>
+
+  <!-- Block Screen -->
+  <div id="block-screen">
+    <p>❌ Permainan Selesai! Kamu Kalah. ❌</p>
+  </div>
+
+  <div id="start-screen">
+  <button id="start-button">Mulai Permainan</button>
+</div>
+
+  <script>
+    const gameArea = document.getElementById('game-area');
+const scoreText = document.getElementById('score');
+const timerText = document.getElementById('timer');
+const hadiahDiv = document.getElementById('hadiah');
+const infoDiv = document.getElementById('info');
+const blockScreenDiv = document.getElementById('block-screen');
+const rewardMessage = document.getElementById('reward-message');
+const startScreen = document.getElementById('start-screen');
+const startButton = document.getElementById('start-button');
+
+let score = 0;
+let timeLeft = 30;
+let interval, spawnInterval;
+let spawnSpeed = 800;
+let boxLifetime = 1500;
+let hardMode = false;
+let chances = 3; // Jumlah kesempatan awal
+
+// Daftar hadiah
+const hadiah = ["Saldo Dana 50K", "Gift item Random", "Makanan", "Minuman"];
+
+// Tampilkan layar awal
+function showStartScreen() {
+  startButton.addEventListener('click', () => {
+    startScreen.style.display = 'none'; // Sembunyikan layar awal
+    startCountdown(); // Mulai hitung mundur
+  });
+}
+
+// Hitung mundur sebelum permainan dimulai
+function startCountdown() {
+  const countdownScreen = document.createElement('div');
+  countdownScreen.id = 'countdown-screen';
+  document.body.appendChild(countdownScreen);
+
+  let countdown = 3;
+  countdownScreen.textContent = countdown;
+
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    countdownScreen.textContent = countdown;
+
+    if (countdown <= 0) {
+      clearInterval(countdownInterval);
+      countdownScreen.remove(); // Hapus layar hitung mundur
+      startGame(); // Mulai permainan
+    }
+  }, 1000);
+}
+
+// Mulai permainan
+function startGame() {
+  interval = setInterval(updateTimer, 1000);
+  spawnInterval = setInterval(spawnBox, spawnSpeed);
+}
+
+// Perbarui timer
+function updateTimer() {
+  timeLeft--;
+  timerText.textContent = timeLeft;
+  if (timeLeft <= 0) {
+    clearInterval(interval);
+    clearInterval(spawnInterval);
+    if (score < 10) {
+      blockScreen(); // Blok tampilan jika kalah
+    }
+  }
+}
+
+// Spawn kotak hijau
+function spawnBox() {
+  const box = document.createElement('div');
+  box.classList.add('box');
+
+  const maxX = gameArea.clientWidth - 50;
+  const maxY = gameArea.clientHeight - 50;
+
+  box.style.left = Math.random() * maxX + "px";
+  box.style.top = Math.random() * maxY + "px";
+
+  box.onclick = () => {
+    score++;
+    scoreText.textContent = score;
+    box.remove();
+
+    if (score > 5 && !hardMode) {
+      activateHardMode();
+    }
+
+    if (score >= 10) {
+      clearInterval(interval);
+      clearInterval(spawnInterval);
+      infoDiv.innerHTML = "<p style='color: green;'>Selamat! Kamu berhasil!</p>";
+      tampilkanHadiah(); // Tampilkan hadiah jika menang
+    }
+  };
+
+  gameArea.appendChild(box);
+
+  setTimeout(() => box.remove(), boxLifetime);
+}
+
+// Aktifkan mode sulit
+function activateHardMode() {
+  hardMode = true;
+  clearInterval(spawnInterval);
+  spawnSpeed = 400;
+  boxLifetime = 800;
+  spawnInterval = setInterval(spawnBox, spawnSpeed);
+  infoDiv.innerHTML = "<p style='color: orange;'>🔺 Mode Sulit Aktif! 🔺</p>";
+}
+
+// Tampilkan hadiah
+function tampilkanHadiah() {
+  const hadiahAcak = hadiah[Math.floor(Math.random() * hadiah.length)]; // Pilih hadiah secara acak
+  rewardMessage.textContent = `Kamu mendapatkan ${hadiahAcak}!`;
+  hadiahDiv.style.display = "block";
+}
+
+// Tampilkan layar blokir jika kalah
+function blockScreen() {
+  chances--; // Kurangi kesempatan
+  if (chances > 0) {
+    blockScreenDiv.innerHTML = `
+      <p>❌ Permainan Selesai! Kamu Kalah. ❌</p>
+      <p>Kesempatan tersisa: ${chances}</p>
+      <button id="retry-button">Coba Lagi</button>
+    `;
+    blockScreenDiv.style.display = "block"; // Tampilkan layar blokir
+
+    // Tambahkan event listener untuk tombol "Coba Lagi"
+    document.getElementById('retry-button').addEventListener('click', () => {
+      blockScreenDiv.style.display = "none"; // Sembunyikan layar blokir
+      resetGame(); // Reset permainan
+    });
+  } else {
+    blockScreenDiv.innerHTML = `
+      <p>❌ Permainan Selesai! Kamu Kalah. ❌</p>
+      <p>Kamu tidak memiliki kesempatan lagi.</p>
+    `;
+    blockScreenDiv.style.display = "block"; // Tampilkan layar blokir
+  }
+}
+
+// Reset permainan
+function resetGame() {
+  score = 0;
+  timeLeft = 30;
+  hardMode = false;
+  scoreText.textContent = score;
+  timerText.textContent = timeLeft;
+  infoDiv.innerHTML = ""; // Hapus pesan info
+  startCountdown(); // Mulai hitung mundur lagi
+}
+
+// Jalankan layar awal saat halaman dimuat
+window.onload = showStartScreen;
+  </script>
+</body>
+</html>
+``` 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Mesin Gacha Hadiah</title>
+  <style>
+  body {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .gacha-machine {
+    width: 320px;
+    background: linear-gradient(to bottom, #ffffff, #d4d4d4);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .gacha-machine h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .glass {
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(circle, #d4f1ff 0%, #a6d8ff 100%);
+    border: 5px solid #888;
+    border-radius: 50% / 40%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .ball {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: drop 0.7s ease forwards;
+  }
+
+  @keyframes drop {
+    0% { top: 60px; opacity: 0; }
+    100% { top: 140px; opacity: 1; }
+  }
+
+  .slot {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background: #333;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .result-text {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(to bottom, crimson, #a00000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px #600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px #400;
+  }
+
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #600;
+  }
+
+  @media (max-width: 480px) {
+    .gacha-machine {
+      width: 280px;
+    }
+
+    .glass {
+      height: 180px;
+    }
+
+    .ball {
+      width: 40px;
+      height: 40px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="gacha-machine">
+    <h2>GACHA MACHINE</h2>
+    <h2 id="chanceText">Kesempatan sebanyak 3x</h2> <!-- Tambahkan elemen ini -->
+    <div class="glass" id="glassArea"></div>
+    <div class="slot"></div>
+    <button onclick="rollGacha()">🎲 GACHA!</button>
+    <div class="result-text" id="resultText"></div>
+  </div>
+
+  <script>
+    const prizes = [
+      "ZONK", "ZONK", "ZONK", "ZONK", "ZONK", "ZONK", "ZONK",
+      "Saldo DANA 50K", "Makanan", "Minuman"
+    ];
+
+    function getRandomPrize() {
+      const isWin = Math.random() <= 0.15;
+      const rewardIndexes = [7, 8, 9];
+      const zonkIndexes = [0, 1, 2, 3, 4, 5, 6];
+      const indexPool = isWin ? rewardIndexes : zonkIndexes;
+      return prizes[indexPool[Math.floor(Math.random() * indexPool.length)]];
+    }
+
+    let chances = 3; // Jumlah kesempatan awal
+
+    function rollGacha() {
+      if (chances > 0) {
+        const glass = document.getElementById("glassArea");
+        const result = document.getElementById("resultText");
+        const chanceText = document.getElementById("chanceText");
+
+        glass.innerHTML = "";
+        result.textContent = "";
+
+        const prize = getRandomPrize();
+        const ball = document.createElement("div");
+        ball.classList.add("ball");
+
+        // Warna bola berdasarkan hadiah
+        if (prize === "Saldo DANA 50K") {
+          ball.style.background = "gold";
+        } else if (prize === "Makanan") {
+          ball.style.background = "limegreen";
+        } else if (prize === "Minuman") {
+          ball.style.background = "skyblue";
+        } else {
+          ball.style.background = "gray";
+        }
+
+        glass.appendChild(ball);
+
+        setTimeout(() => {
+          result.innerHTML = `🎉 Kamu mendapatkan <strong>${prize}</strong>`;
+        }, 800);
+
+        // Kurangi jumlah kesempatan
+        chances--;
+        chanceText.textContent = `Kesempatan sebanyak ${chances}x`;
+
+        // Nonaktifkan tombol jika kesempatan habis
+        if (chances === 0) {
+          const button = document.querySelector("button");
+          button.disabled = true;
+          button.style.background = "gray";
+          button.style.cursor = "not-allowed";
+          result.innerHTML = "🎮 Kesempatan habis! Terima kasih telah bermain.";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

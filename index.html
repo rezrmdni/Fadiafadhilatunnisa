@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level up days!!!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <audio id="backgroundMusic" src="audio/backsound.mp3" preload="auto" loop></audio>
+    <div id="overlay">
+        <div id="countdown-container"></div>
+        <div id="countdown"></div>
+    </div>
+    <section id="home" class="hero">
+        </div>
+        <div id="content" class="hidden">
+            <canvas id="fireworksCanvas">Browser Anda tidak mendukung elemen canvas.</canvas>
+            <h2>Selamat Ulang Tahun!</h2>
+            <h1 id="typing-text"></h1>
+    
+            <div class="gift-container">
+                <div class="gift-box1" data-minigame="minigame1.html" onclick="showPopup(this)">
+                    <img class="kado1" src="images/pink.png" alt="Gift 1">
+                </div>
+                <div class="gift-box2" data-minigame="minigame2.html" onclick="showPopup(this)">
+                    <img class="kado2" src="images/biru.png" alt="Gift 2">
+                </div>
+                <div class="gift-box3" data-minigame="minigame3.html" onclick="showPopup(this)">
+                    <img class="kado3" src="images/pink.png" alt="Gift 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Popup Modal Section -->
+     <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <iframe src="minigame1.html" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <section id="bgflower">
+    <div class="flowers">
+      <div class="flower flower--1">
+          <div class="flower__leafs flower__leafs--1">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+  
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+              <div class="flower__line__leaf flower__line__leaf--5"></div>
+              <div class="flower__line__leaf flower__line__leaf--6"></div>
+          </div>
+      </div>
+  
+      <div class="flower flower--2">
+          <div class="flower__leafs flower__leafs--2">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+  
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+          </div>
+      </div>
+  
+      <div class="flower flower--3">
+          <div class="flower__leafs flower__leafs--3">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+  
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+          </div>
+          <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+          </div>
+      </div>
+    </div>
+    </section>
+
+    <section id="about">
+        <h2 class="fade-in">Dear Fadia</h2>
+        <p class="write-text fade-in">
+            Hari ini tepatnya hari Senin, 05 Mei 2025 merupakan salah satu hari yang sangat penting karena tepat di hari ini, seseorang yang spesial buat gua lahir ke dunia ini.
+            Gua mau ngucapin selamat ulang tahun yang ke-21 buat lu, semoga di umur yang baru ini lu bisa jadi orang yang lebih baik lagi, lebih dewasa lagi, lebih bijak lagi, dan lebih bahagia lagi. 
+            btw Makasih karena udah mau temenan sama gua, lu jadi salah satu alasan gua buat tetep lanjut kuliah. Makasih karena udah jadi temen ngobrol gua, ya walaupun cuma di wa.
+            Gua bersyukur bisa kenal sama lu, bisa ketemu lu walaupun ga setiap hari. walaupun kadang nyolot kek bocil batu tapi gapapa it's okay.
+            Di hari ulang tahun lu kali ini, gua berharap apapun yang lu lakuin kedepannya itu bener-bener pilihan terbaik dari lu. dan semoga semua harapan lu, cita-cita lu, keinginan lu atau apapun itu bisa terkabul.
+            Gua gabisa komen banyak tentang kehidupan lu karna emang gua gatau apa-apa tentang lu, yang jelas tetep selalu jadi orang yang gua kenal. Dan semisal nanti lu punya something, jangan lupa upload di story biar gua tau, 
+            seenggaknya dengan lu upload di story gua jadi tau dan gua bisa cari temen ngobrol lain. tadinya gua mau dateng langsung ke rumah lu buat ngucapin, tapi berhubung gua gatau rumah lu jadi gua ucapin lewat web sederhana ini, yaa walaupun isi webnya seadanya wkwk Pokoknya happy level up and have a nice day!
+        </p>
+    </section>
+
+    <section id="rumput">
+        <div class="flowers">
+        
+            <div class="grow-ans" style="--d:1.2s">
+                <div class="flower__g-long">
+                    <div class="flower__g-long__top"></div>
+                    <div class="flower__g-long__bottom"></div>
+                </div>
+            </div>
+        
+            <div class="growing-grass">
+                <div class="flower__grass flower__grass--1">
+                    <div class="flower__grass--top"></div>
+                    <div class="flower__grass--bottom"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                    <div class="flower__grass__overlay"></div>
+                </div>
+            </div>
+        
+            <div class="growing-grass">
+                <div class="flower__grass flower__grass--2">
+                    <div class="flower__grass--top"></div>
+                    <div class="flower__grass--bottom"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+                    <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+                    <div class="flower__grass__overlay"></div>
+                </div>
+            </div>
+        
+            <div class="grow-ans" style="--d:2.4s">
+                <div class="flower__g-right flower__g-right--1">
+                    <div class="leaf"></div>
+                </div>
+            </div>
+        
+            <div class="grow-ans" style="--d:2.8s">
+                <div class="flower__g-right flower__g-right--2">
+                    <div class="leaf"></div>
+                </div>
+            </div>
+        
+            <div class="grow-ans" style="--d:2.8s">
+                <div class="flower__g-front">
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+                        <div class="flower__g-front__leaf"></div>
+                    </div>
+                    <div class="flower__g-front__line"></div>
+                </div>
+            </div>
+        
+            <div class="grow-ans" style="--d:3.2s">
+                <div class="flower__g-fr">
+                    <div class="leaf"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+                    <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--1">
+                <div class="grow-ans" style="--d:3.6s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.8s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:4s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--2">
+                <div class="grow-ans" style="--d:4s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.4s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.6s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--3">
+                <div class="grow-ans" style="--d:4s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:3s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.6s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--4">
+                <div class="grow-ans" style="--d:4s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:3s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.6s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--5">
+                <div class="grow-ans" style="--d:4s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:3s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.6s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--6">
+                <div class="grow-ans" style="--d:4.2s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.4s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.6s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:4.8s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+        
+            <div class="long-g long-g--7">
+                <div class="grow-ans" style="--d:3s">
+                    <div class="leaf leaf--0"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.2s">
+                    <div class="leaf leaf--1"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.5s">
+                    <div class="leaf leaf--2"></div>
+                </div>
+                <div class="grow-ans" style="--d:3.6s">
+                    <div class="leaf leaf--3"></div>
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <section id="wish">
+        <div id="balloon-container"></div>
+        <form id="contactForm" class="wish-form">
+            <h2>Make a wish</h2>
+            <p>ini kotak random cuma lu sama tuhan yang tau, jadi kalo mau iseng bikin wish buat diri sendiri, ketik disini aja.</p>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send a secret wish</button>
+        </form>
+    </section>
+
+    <section id="gallery">
+        <div class="text2">
+            <h2>Gallery</h2>
+            <p>Niatnya mau upload foto lu yang banyak tapi karna adanya cuma segini jadi yaudah lah yang penting ada</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-container">
+                <div class="gallery-item"><img src="gallery/1.PNG" alt="Project Image 1"></div>
+                <div class="gallery-item"><img src="gallery/2.PNG" alt="Project Image 2"></div>
+                <div class="gallery-item"><img src="gallery/3.PNG" alt="Project Image 3"></div>
+                <div class="gallery-item"><img src="gallery/4.jpg" alt="Project Image 4"></div>
+                <div class="gallery-item"><img src="gallery/5.PNG" alt="Project Image 1"></div>
+                <div class="gallery-item"><img src="gallery/6.PNG" alt="Project Image 2"></div>
+                <div class="gallery-item"><img src="gallery/7.PNG" alt="Project Image 3"></div>
+            </div>
+        </div>
+        <div class="buttons2">
+            <a href="#services" class="btn-scnd">See More</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>LIMITED EDITION STICKER PACK WHATSAPP</h2>
+        <h2>WKWKWK</h2>
+        <!-- <p>kalo mau stickernya pc aja wkwk</p> -->
+        <div class="stiker-container">
+            <img class="stiker" src="sticker/1.png" alt="Stiker 1">
+            <img class="stiker" src="sticker/2.png" alt="Stiker 2">
+            <img class="stiker" src="sticker/3.png" alt="Stiker 3">
+            <img class="stiker" src="sticker/4.png" alt="Stiker 4">
+            <img class="stiker" src="sticker/5.png" alt="Stiker 5">
+            <img class="stiker" src="sticker/6.png" alt="Stiker 6">
+            <img class="stiker" src="sticker/7.png" alt="Stiker 7">
+            <img class="stiker" src="sticker/8.png" alt="Stiker 8">
+            <img class="stiker" src="sticker/9.png" alt="Stiker 9">
+            <img class="stiker" src="sticker/10.png" alt="Stiker 10">
+            <img class="stiker" src="sticker/11.png" alt="Stiker 11">
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <img class="polaroid" src="gallery/set.png" alt="" srcset="" width="670">
+            <h2>Received Items</h2>
+            <div id="contactFormContainer" class="contact-form-container">
+                <p class="descform">*isi ini kalo dapet hadiah dari game diatas</p>
+                <form id="contactForm">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email Anda</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="address">Alamat Lengkap</label>
+                    <textarea id="address" name="address" rows="2" required></textarea>
+
+                    <button type="submit">Selesai</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> This website was created by OZVGEN21. all rights reserved.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Match Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      gap: 15px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+    .card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
+    .card-front {
+      background: #161b22;
+    }
+    .card-back {
+      background: #ffffff;
+      transform: rotateY(180deg);
+    }
+    #stats {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    #timer {
+      margin-top: 5px;
+      font-size: 18px;
+    }
+    #start-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #238636;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #start-btn:hover {
+      background: #2ea043;
+    }
+  </style>
+</head>
+<body>
+
+<h1>FLIP CARD GAMES</h1>
+<div id="stats">Moves: 0</div>
+<div id="timer">Time: 0s</div>
+<div id="game-board"></div>
+<button id="start-btn">▶️ Mulai Permainan</button>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  const icons = [
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '5.png',
+    '6.png',
+    '7.png',
+    '8.png'
+  ];
+  let cards = [...icons, ...icons]; // 16 cards (8 pairs)
+  let flippedCards = [];
+  let matched = 0;
+  let moves = 0;
+  let timer = 0;
+  let timerInterval;
+  let attempts = 3; // Jumlah kesempatan bermain
+  const maxMoves = 20; // Batas langkah maksimum
+  const maxTime = 60; // Batas waktu maksimum dalam detik
+  const rewards = ['Saldo Dana 50k', 'Makanan', 'Minuman']; // Daftar hadiah
+
+  const gameBoard = document.getElementById('game-board');
+  const stats = document.getElementById('stats');
+  const timerDisplay = document.getElementById('timer');
+  const startBtn = document.getElementById('start-btn');
+
+  function shuffle(array) {
+    return array.sort(() => 0.5 - Math.random());
+  }
+
+  function createCard(icon) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const inner = document.createElement('div');
+    inner.classList.add('card-inner');
+
+    const front = document.createElement('div');
+    front.classList.add('card-front');
+    front.textContent = '?';
+
+    const back = document.createElement('div');
+    back.classList.add('card-back');
+
+    const img = document.createElement('img');
+    img.src = `sticker/${icon}`;
+    img.alt = icon;
+    img.style.width = '80%';
+    img.style.height = '80%';
+
+    back.appendChild(img);
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
+
+    card.dataset.icon = icon;
+
+    card.addEventListener('click', () => handleFlip(card));
+
+    return card;
+  }
+
+  function initGame() {
+    if (attempts <= 0) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Kesempatan Habis!',
+        text: '❌ Anda telah menggunakan semua kesempatan bermain.',
+        confirmButtonText: 'Tutup'
+      });
+      return;
+    }
+
+    // Sembunyikan tombol "Mulai Permainan"
+    startBtn.style.display = 'none';
+
+    clearInterval(timerInterval);
+    gameBoard.innerHTML = '';
+    flippedCards = [];
+    matched = 0;
+    moves = 0;
+    timer = 0;
+    stats.textContent = `Moves: 0 / ${maxMoves}`;
+    timerDisplay.textContent = `Time: 0s`;
+
+    cards = shuffle(cards);
+    cards.forEach(icon => {
+      const card = createCard(icon);
+      gameBoard.appendChild(card);
+    });
+
+    timerInterval = setInterval(() => {
+      timer++;
+      timerDisplay.textContent = `Time: ${timer}s`;
+
+      if (timer > maxTime) {
+        clearInterval(timerInterval);
+        attempts--;
+        Swal.fire({
+          icon: 'error',
+          title: 'Waktu Habis!',
+          text: `❌ Anda kalah! Waktu telah habis. Kesempatan tersisa: ${attempts}`,
+          confirmButtonText: 'Coba Lagi'
+        }).then(() => {
+          initGame();
+        });
+      }
+    }, 1000);
+  }
+
+  function handleFlip(card) {
+    if (card.classList.contains('flip') || flippedCards.length === 2) return;
+
+    card.classList.add('flip');
+    flippedCards.push(card);
+
+    if (flippedCards.length === 2) {
+      moves++;
+      stats.textContent = `Moves: ${moves} / ${maxMoves}`;
+
+      if (moves > maxMoves) {
+        clearInterval(timerInterval);
+        attempts--;
+        Swal.fire({
+          icon: 'error',
+          title: 'Langkah Habis!',
+          text: `❌ Anda kalah! Langkah Anda melebihi batas (${maxMoves}). Kesempatan tersisa: ${attempts}`,
+          confirmButtonText: 'Coba Lagi'
+        }).then(() => {
+          initGame();
+        });
+        return;
+      }
+
+      const [card1, card2] = flippedCards;
+      if (card1.dataset.icon === card2.dataset.icon) {
+        matched += 2;
+        flippedCards = [];
+
+        if (matched === cards.length) {
+          clearInterval(timerInterval);
+          const reward = rewards[Math.floor(Math.random() * rewards.length)];
+          Swal.fire({
+            icon: 'success',
+            title: 'Selamat!',
+            text: `🎉 Anda menang dalam ${moves} langkah dan ${timer} detik! Hadiah Anda adalah: ${reward}`,
+            confirmButtonText: 'Main Lagi'
+          }).then(() => {
+            initGame();
+          });
+        }
+      } else {
+        setTimeout(() => {
+          card1.classList.remove('flip');
+          card2.classList.remove('flip');
+          flippedCards = [];
+        }, 800);
+      }
+    }
+  }
+
+  startBtn.addEventListener('click', () => {
+    attempts = 3; // Reset jumlah kesempatan saat tombol ditekan
+    initGame();
+  });
+
+  // Permainan tidak dimulai otomatis, menunggu tombol ditekan
+</script>
+
+</body>
+</html>

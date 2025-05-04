@@ -1,0 +1,2004 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #000;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #f2eeee;
+    background-color: #000000;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff5722;
+}
+
+section {
+    height: 100vh; /* Tinggi penuh dari viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+}
+
+#services {
+    margin-top: 500px;
+    margin-bottom: 10%;
+}
+
+#about, #services, #contact {
+    background-color: #000000;
+    color: #333;
+}
+
+#about h2, #services h2, #contact h2 {
+    color: #ff5722; /* Warna judul untuk konsistensi */
+}
+
+.stiker {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    rotate: 12degrees;
+}
+
+.gift-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 10px; /* Adjust the gap between gift boxes as needed */
+    position: relative;
+}
+
+.gift-box1,
+.gift-box2,
+.gift-box3 {
+    cursor: pointer;
+    transition: transform 0.3s;
+}   
+
+.gift-box1 .kado1 {
+    width: 250px;
+    height: 250px;
+    left: 40%;
+    position: relative;
+
+}
+
+.gift-box2 .kado2 {
+    width: 300px;
+    height: 370px;
+    position: relative;
+    top: -35px;
+    left:  -1%;
+}
+.gift-box3 .kado3 {
+    width: 250px;
+    height: 250px;
+    right: 40%;
+    position: relative;
+}
+
+.gift-box1:hover,
+.gift-box2:hover,
+.gift-box3:hover {
+    animation: growShrink 0.6s forwards;
+}
+
+@keyframes growShrink {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff5722;
+}
+
+section p {
+    font-size: 1rem;
+    color: #f0eaea;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* Styling untuk section contact */
+#contact {
+    background-color: #000000; /* Warna latar belakang putih untuk tampilan bersih */
+    padding: 40px 30px;
+    border-radius: 15px; /* Sudut membulat untuk tampilan modern */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek modern */
+    width: 70%; /* Lebar penuh */
+    height: auto;
+    max-width: 600px; /* Batasi lebar maksimum form */
+    margin-top: 400px;
+    position: relative;
+    left: 50%;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff5722;
+    text-align: center;
+    font-weight: bold;
+}
+
+#contact .descform {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #8f8c8c;
+    text-align: center;
+    font-style: italic;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antar-elemen */
+    width: 100%; /* Lebar penuh */
+}
+
+#contact label {
+    font-size: 1rem;
+    color: #a6a1a1;
+    font-weight: bold;
+    margin-bottom: 5px; /* Jarak antara label dan input */
+    display: flex; /* Pastikan label berada di atas input */
+    position: relative;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 12px; /* Tambahkan padding untuk kenyamanan */
+    font-size: 1rem;
+    border: 1px solid #ddd; /* Warna border yang lembut */
+    border-radius: 8px; /* Sudut membulat */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9; /* Warna latar belakang lembut */
+}
+
+#contact input:hover,
+#contact textarea:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek hover */
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #007bff; /* Warna biru untuk fokus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Efek fokus */
+}
+
+#contact textarea {
+    resize: none; /* Nonaktifkan resize untuk textarea */
+}
+
+#contact button {
+    background-color: #007bff; /* Warna biru untuk tombol */
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#contact button:hover {
+    background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+#contact .contact-container {
+    display: flex;
+    align-items: flex-start; /* Rata atas */
+    gap: 20px; /* Jarak antara h2 dan form */
+}
+
+#contact h2 {
+    flex: 0 0 200px; /* Lebar tetap untuk h2 */
+    text-align: left; /* Rata kiri teks */
+    margin: 0; /* Hilangkan margin default */
+}
+
+#contact .contact-form-container {
+    flex: 1; /* Form mengambil sisa ruang */
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    #contact {
+        padding: 30px 20px;
+    }
+
+    #contact h2 {
+        font-size: 1.6rem;
+    }
+
+    #contact input,
+    #contact textarea {
+        font-size: 0.9rem;
+    }
+
+    #contact button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Styling untuk section services */
+#services {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #000000; /* Warna latar belakang lembut */
+}
+
+/* Container untuk gambar stiker */
+.stiker-container {
+    display: flex; /* Gunakan Flexbox */
+    flex-wrap: wrap; /* Bungkus ke baris berikutnya jika tidak muat */
+    justify-content: center; /* Pusatkan secara horizontal */
+    gap: 20px; /* Jarak antar gambar */
+}
+
+/* Styling untuk gambar stiker */
+.stiker {
+    width: calc(33.33% - 20px); /* Lebar gambar agar maksimal 3 per baris */
+    max-width: 200px; /* Batasi ukuran maksimum gambar */
+    height: auto; /* Pertahankan rasio aspek gambar */
+    border-radius: 10px; /* Sudut membulat untuk tampilan modern */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek transisi */
+}
+
+/* Efek hover pada gambar */
+.stiker:hover {
+    transform: scale(1.1); /* Perbesar sedikit saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    .stiker {
+        width: calc(50% - 20px); /* Maksimal 2 gambar per baris di layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .stiker {
+        width: calc(100% - 20px); /* Maksimal 1 gambar per baris di layar sangat kecil */
+    }
+}
+
+/* Styling untuk modal */
+.modal {
+    display: none; /* Sembunyikan modal secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+    z-index: 99999999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 700px; /* Atur tinggi sesuai kebutuhan */
+    border: none; /* Opsional: Hilangkan border */
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#bgflower {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    margin-top: 350px;
+    margin-bottom: 50px; /* Tambahkan jarak bawah */
+}
+
+/* Styling untuk teks di section about */
+#about .write-text {
+    color: #ffffff; /* Warna teks yang terlihat */
+    backdrop-filter: blur(1px); /* Efek blur pada latar belakang */
+    font-size: 1.2rem; /* Ukuran font */
+    line-height: 1.8; /* Jarak antar baris untuk keterbacaan */
+    text-align: center; /* Rata kiri-kanan untuk tampilan rapi */
+    margin: 10px 0; /* Jarak antar paragraf */
+    overflow: visible; /* Pastikan teks tidak terpotong */
+    padding-left: 5%;
+    padding-right: 5%; /* Padding kiri dan kanan untuk ruang */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.wish-form {
+    background-color: #ffffff; /* Warna latar belakang putih untuk tampilan bersih */
+    padding: 40px 30px; /* Padding untuk ruang di dalam form */
+    border-radius: 15px; /* Sudut membulat untuk tampilan modern */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek modern */
+    width: 70%; /* Lebar form */
+    max-width: 600px; /* Batasi lebar maksimum */
+    margin: 50px auto; /* Pusatkan form */
+    text-align: center; /* Pusatkan teks */
+}
+
+.wish-form h2 {
+    font-size: 2rem; /* Ukuran font untuk judul */
+    margin-bottom: 20px; /* Jarak bawah judul */
+    color: #333; /* Warna teks */
+    font-weight: bold; /* Teks tebal */
+}
+
+.wish-form p {
+    font-size: 1rem; /* Ukuran font untuk deskripsi */
+    margin-bottom: 20px; /* Jarak bawah deskripsi */
+    color: #666; /* Warna teks deskripsi */
+    font-style: italic; /* Teks miring */
+}
+
+.wish-form textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 12px; /* Padding untuk kenyamanan */
+    font-size: 1rem; /* Ukuran font */
+    border: 1px solid #ddd; /* Warna border lembut */
+    border-radius: 8px; /* Sudut membulat */
+    outline: none; /* Hilangkan outline default */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Efek transisi */
+    background-color: #f9f9f9; /* Warna latar belakang lembut */
+    resize: none; /* Nonaktifkan resize */
+}
+
+.wish-form textarea:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek hover */
+}
+
+.wish-form textarea:focus {
+    border-color: #007bff; /* Warna biru untuk fokus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Efek fokus */
+}
+
+.wish-form button {
+    background-color: #007bff; /* Warna biru untuk tombol */
+    color: #fff; /* Warna teks putih */
+    padding: 12px 20px; /* Padding tombol */
+    font-size: 1rem; /* Ukuran font tombol */
+    border: none; /* Hilangkan border */
+    border-radius: 8px; /* Sudut membulat */
+    cursor: pointer; /* Pointer saat hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efek transisi */
+    font-weight: bold; /* Teks tebal */
+    text-transform: uppercase; /* Huruf kapital */
+}
+
+.wish-form button:hover {
+    background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Responsivitas untuk wish-form */
+@media (max-width: 768px) {
+    .wish-form {
+        padding: 30px 20px; /* Kurangi padding untuk layar kecil */
+        width: 90%; /* Lebar hampir penuh */
+    }
+
+    .wish-form h2 {
+        font-size: 1.6rem; /* Ukuran font lebih kecil */
+    }
+
+    .wish-form textarea {
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
+    }
+
+    .wish-form button {
+        font-size: 0.9rem; /* Ukuran font tombol lebih kecil */
+    }
+}
+
+#about {
+    position: relative;
+    overflow: hidden; /* Pastikan elemen tidak keluar dari batas */
+    padding: 50px 20px;
+    text-align: center;
+    background: #000000; /* Warna latar belakang */
+    color: #fff; /* Warna teks */
+    margin-top: 100px; /* Tambahkan jarak atas */
+}
+
+@keyframes bloom {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Awalnya kecil */
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2); /* Mekar penuh */
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Stabil */
+        opacity: 0.8;
+    }
+}
+
+#about h2, #about p {
+    position: relative;
+    z-index: 9999999; /* Pastikan konten berada di atas animasi */
+    backdrop-filter: blur(2px); /* Efek blur pada latar belakang */
+}
+
+#gallery {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.gallery {
+  margin-top: 40px;
+  padding: 40px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+}
+
+.gallery h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding-bottom: 10px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttons2 {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-scnd {
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  border: 1px solid #333;
+  color: white;
+  background: #333;
+  margin: 0 auto;
+}
+
+/* awalbunga */
+
+.flowers {
+  position: relative;
+  transform: scale(0.9);
+}
+
+.flower {
+  position: absolute;
+  bottom: 10vmin;
+  transform-origin: bottom center;
+  z-index: 10;
+  --fl-speed: 0.3s;
+}
+.flower--1 {
+  -webkit-animation: moving-flower-1 4s linear infinite;
+          animation: moving-flower-1 4s linear infinite;
+}
+.flower--1 .flower__line {
+  height: 70vmin;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.flower--1 .flower__line__leaf--1 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 1.6s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 1.6s backwards;
+}
+.flower--1 .flower__line__leaf--2 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 1.4s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 1.4s backwards;
+}
+.flower--1 .flower__line__leaf--3 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 1.2s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 1.2s backwards;
+}
+.flower--1 .flower__line__leaf--4 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 1s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 1s backwards;
+}
+.flower--1 .flower__line__leaf--5 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 1.8s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 1.8s backwards;
+}
+.flower--1 .flower__line__leaf--6 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 2s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 2s backwards;
+}
+.flower--2 {
+  left: 50%;
+  transform: rotate(20deg);
+  -webkit-animation: moving-flower-2 4s linear infinite;
+          animation: moving-flower-2 4s linear infinite;
+}
+.flower--2 .flower__line {
+  height: 60vmin;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.flower--2 .flower__line__leaf--1 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 1.9s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 1.9s backwards;
+}
+.flower--2 .flower__line__leaf--2 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 1.7s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 1.7s backwards;
+}
+.flower--2 .flower__line__leaf--3 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 1.5s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 1.5s backwards;
+}
+.flower--2 .flower__line__leaf--4 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 1.3s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 1.3s backwards;
+}
+.flower--3 {
+  left: 50%;
+  transform: rotate(-15deg);
+  -webkit-animation: moving-flower-3 4s linear infinite;
+          animation: moving-flower-3 4s linear infinite;
+}
+.flower--3 .flower__line {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.flower--3 .flower__line__leaf--1 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 2.5s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 2.5s backwards;
+}
+.flower--3 .flower__line__leaf--2 {
+  -webkit-animation: blooming-leaf-right var(--fl-speed) 2.3s backwards;
+          animation: blooming-leaf-right var(--fl-speed) 2.3s backwards;
+}
+.flower--3 .flower__line__leaf--3 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 2.1s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 2.1s backwards;
+}
+.flower--3 .flower__line__leaf--4 {
+  -webkit-animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
+          animation: blooming-leaf-left var(--fl-speed) 1.9s backwards;
+}
+.flower__leafs {
+  position: relative;
+  -webkit-animation: blooming-flower 2s backwards;
+          animation: blooming-flower 2s backwards;
+}
+.flower__leafs--1 {
+  -webkit-animation-delay: 1.1s;
+          animation-delay: 1.1s;
+}
+.flower__leafs--2 {
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+.flower__leafs--3 {
+  -webkit-animation-delay: 1.7s;
+          animation-delay: 1.7s;
+}
+.flower__leafs::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -100%);
+  width: 8vmin;
+  height: 8vmin;
+  background-color: #6bf0ff;
+  filter: blur(10vmin);
+}
+.flower__leaf {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 8vmin;
+  height: 11vmin;
+  border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
+  background-color: #f672b0;
+  background-image: linear-gradient(to top, #ee5286, #ee5286);
+  transform-origin: bottom center;
+  opacity: 0.9;
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
+}
+.flower__leaf--1 {
+  transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
+}
+.flower__leaf--2 {
+  transform: translate(-50%, -4%) rotateX(40deg);
+}
+.flower__leaf--3 {
+  transform: translate(-90%, 0%) rotateY(45deg) rotateX(50deg);
+}
+.flower__leaf--4 {
+  width: 8vmin;
+  height: 8vmin;
+  transform-origin: bottom left;
+  border-radius: 4vmin 10vmin 4vmin 4vmin;
+  transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
+  background-image: linear-gradient(to top, #ee5286, #ee5286);
+  z-index: 1;
+  opacity: 0.8;
+}
+.flower__white-circle {
+  position: absolute;
+  left: -3.5vmin;
+  top: -3vmin;
+  width: 9vmin;
+  height: 4vmin;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.flower__white-circle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: inherit;
+  background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(112.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(22.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(157.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), repeating-linear-gradient(67.5deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 12px), linear-gradient(90deg, rgb(127, 47, 21), rgb(255, 206, 0));
+}
+.flower__line {
+  height: 55vmin;
+  width: 1.5vmin;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), linear-gradient(to top, transparent 10%, #583e08, #944415);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  -webkit-animation: grow-flower-tree 4s backwards;
+          animation: grow-flower-tree 4s backwards;
+}
+.flower__line__leaf {
+  --w: 7vmin;
+  --h: calc(var(--w) + 2vmin);
+  position: absolute;
+  top: 20%;
+  left: 90%;
+  width: var(--w);
+  height: var(--h);
+  border-top-right-radius: var(--h);
+  border-bottom-left-radius: var(--h);
+  background-image: linear-gradient(to top, rgba(20, 117, 122, 0.4), #095721);
+}
+.flower__line__leaf--1 {
+  transform: rotate(70deg) rotateY(30deg);
+}
+.flower__line__leaf--2 {
+  top: 45%;
+  transform: rotate(70deg) rotateY(30deg);
+}
+.flower__line__leaf--3, .flower__line__leaf--4, .flower__line__leaf--6 {
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: var(--h);
+  border-bottom-right-radius: var(--h);
+  left: -460%;
+  top: 12%;
+  transform: rotate(-70deg) rotateY(30deg);
+}
+.flower__line__leaf--4 {
+  top: 40%;
+}
+.flower__line__leaf--5 {
+  top: 0;
+  transform-origin: left;
+  transform: rotate(70deg) rotateY(30deg) scale(0.6);
+}
+.flower__line__leaf--6 {
+  top: -2%;
+  left: -450%;
+  transform-origin: right;
+  transform: rotate(-70deg) rotateY(30deg) scale(0.6);
+}
+.flower__light {
+  position: absolute;
+  bottom: 0vmin;
+  width: 1vmin;
+  height: 1vmin;
+  background-color: rgb(255, 251, 0);
+  border-radius: 50%;
+  filter: blur(0.2vmin);
+  -webkit-animation: light-ans 4s linear infinite backwards;
+          animation: light-ans 4s linear infinite backwards;
+}
+.flower__light:nth-child(odd) {
+  background-color: #f76baf;
+}
+.flower__light--1 {
+  left: -2vmin;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.flower__light--2 {
+  left: 3vmin;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.flower__light--3 {
+  left: -6vmin;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.flower__light--4 {
+  left: 6vmin;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.flower__light--5 {
+  left: -1vmin;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+.flower__light--6 {
+  left: -4vmin;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+.flower__light--7 {
+  left: 3vmin;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.flower__light--8 {
+  left: -6vmin;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+}
+.flower__grass {
+  --c: #04661f;
+  --line-w: 1.5vmin;
+  position: absolute;
+  bottom: 12vmin;
+  left: -7vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 20;
+  transform-origin: bottom center;
+  transform: rotate(-48deg) rotateY(40deg);
+}
+.flower__grass--1 {
+  -webkit-animation: moving-grass 2s linear infinite;
+          animation: moving-grass 2s linear infinite;
+}
+.flower__grass--2 {
+  left: 2vmin;
+  bottom: 10vmin;
+  transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg);
+  opacity: 0.8;
+  z-index: 0;
+  -webkit-animation: moving-grass--2 1.5s linear infinite;
+          animation: moving-grass--2 1.5s linear infinite;
+}
+.flower__grass--top {
+  width: 7vmin;
+  height: 10vmin;
+  border-top-right-radius: 100%;
+  border-right: var(--line-w) solid var(--c);
+  transform-origin: bottom center;
+  transform: rotate(-2deg);
+}
+.flower__grass--bottom {
+  margin-top: -2px;
+  width: var(--line-w);
+  height: 25vmin;
+  background-image: linear-gradient(to top, transparent, var(--c));
+}
+.flower__grass__leaf {
+  --size: 10vmin;
+  position: absolute;
+  width: calc(var(--size) * 2.1);
+  height: var(--size);
+  border-top-left-radius: var(--size);
+  border-top-right-radius: var(--size);
+  background-image: linear-gradient(to top, transparent, transparent 30%, var(--c));
+  z-index: 100;
+}
+.flower__grass__leaf--1 {
+  top: -6%;
+  left: 30%;
+  --size: 6vmin;
+  transform: rotate(-20deg);
+  -webkit-animation: growing-grass-ans--1 2s 2.6s backwards;
+          animation: growing-grass-ans--1 2s 2.6s backwards;
+}
+@-webkit-keyframes growing-grass-ans--1 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-20deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--1 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-20deg) scale(0);
+  }
+}
+.flower__grass__leaf--2 {
+  top: -5%;
+  left: -110%;
+  --size: 6vmin;
+  transform: rotate(10deg);
+  -webkit-animation: growing-grass-ans--2 2s 2.4s linear backwards;
+          animation: growing-grass-ans--2 2s 2.4s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--2 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--2 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+.flower__grass__leaf--3 {
+  top: 5%;
+  left: 60%;
+  --size: 8vmin;
+  transform: rotate(-18deg) rotateX(-20deg);
+  -webkit-animation: growing-grass-ans--3 2s 2.2s linear backwards;
+          animation: growing-grass-ans--3 2s 2.2s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--3 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-18deg) rotateX(-20deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--3 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-18deg) rotateX(-20deg) scale(0);
+  }
+}
+.flower__grass__leaf--4 {
+  top: 6%;
+  left: -135%;
+  --size: 8vmin;
+  transform: rotate(2deg);
+  -webkit-animation: growing-grass-ans--4 2s 2s linear backwards;
+          animation: growing-grass-ans--4 2s 2s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--4 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(2deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--4 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(2deg) scale(0);
+  }
+}
+.flower__grass__leaf--5 {
+  top: 20%;
+  left: 60%;
+  --size: 10vmin;
+  transform: rotate(-24deg) rotateX(-20deg);
+  -webkit-animation: growing-grass-ans--5 2s 1.8s linear backwards;
+          animation: growing-grass-ans--5 2s 1.8s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--5 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-24deg) rotateX(-20deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--5 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-24deg) rotateX(-20deg) scale(0);
+  }
+}
+.flower__grass__leaf--6 {
+  top: 22%;
+  left: -180%;
+  --size: 10vmin;
+  transform: rotate(10deg);
+  -webkit-animation: growing-grass-ans--6 2s 1.6s linear backwards;
+          animation: growing-grass-ans--6 2s 1.6s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--6 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--6 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+.flower__grass__leaf--7 {
+  top: 39%;
+  left: 70%;
+  --size: 10vmin;
+  transform: rotate(-10deg);
+  -webkit-animation: growing-grass-ans--7 2s 1.4s linear backwards;
+          animation: growing-grass-ans--7 2s 1.4s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--7 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-10deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--7 {
+  0% {
+    transform-origin: bottom left;
+    transform: rotate(-10deg) scale(0);
+  }
+}
+.flower__grass__leaf--8 {
+  top: 40%;
+  left: -215%;
+  --size: 11vmin;
+  transform: rotate(10deg);
+  -webkit-animation: growing-grass-ans--8 2s 1.2s linear backwards;
+          animation: growing-grass-ans--8 2s 1.2s linear backwards;
+}
+@-webkit-keyframes growing-grass-ans--8 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+@keyframes growing-grass-ans--8 {
+  0% {
+    transform-origin: bottom right;
+    transform: rotate(10deg) scale(0);
+  }
+}
+.flower__grass__overlay {
+  position: absolute;
+  top: -10%;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  filter: blur(1.5vmin);
+  z-index: 100;
+}
+.flower__g-long {
+  --w: 2vmin;
+  --h: 6vmin;
+  --c: #0e5b3c;
+  position: absolute;
+  bottom: 10vmin;
+  left: -3vmin;
+  transform-origin: bottom center;
+  transform: rotate(-30deg) rotateY(-20deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  -webkit-animation: flower-g-long-ans 3s linear infinite;
+          animation: flower-g-long-ans 3s linear infinite;
+}
+@-webkit-keyframes flower-g-long-ans {
+  0%, 100% {
+    transform: rotate(-30deg) rotateY(-20deg);
+  }
+  50% {
+    transform: rotate(-32deg) rotateY(-20deg);
+  }
+}
+@keyframes flower-g-long-ans {
+  0%, 100% {
+    transform: rotate(-30deg) rotateY(-20deg);
+  }
+  50% {
+    transform: rotate(-32deg) rotateY(-20deg);
+  }
+}
+.flower__g-long__top {
+  top: calc(var(--h) * -1);
+  width: calc(var(--w) + 1vmin);
+  height: var(--h);
+  border-top-right-radius: 100%;
+  border-right: 0.7vmin solid var(--c);
+  transform: translate(-0.7vmin, 1vmin);
+}
+.flower__g-long__bottom {
+  width: var(--w);
+  height: 50vmin;
+  transform-origin: bottom center;
+  background-image: linear-gradient(to top, transparent 30%, var(--c));
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  -webkit-clip-path: polygon(35% 0, 65% 1%, 100% 100%, 0% 100%);
+          clip-path: polygon(35% 0, 65% 1%, 100% 100%, 0% 100%);
+}
+.flower__g-right {
+  position: absolute;
+  bottom: 6vmin;
+  left: -2vmin;
+  transform-origin: bottom left;
+  transform: rotate(20deg);
+}
+.flower__g-right .leaf {
+  width: 30vmin;
+  height: 50vmin;
+  border-top-left-radius: 100%;
+  border-left: 2vmin solid #217005;
+  background-image: linear-gradient(to bottom, transparent, var(--dark-color) 60%);
+  -webkit-mask-image: linear-gradient(to top, transparent 30%, #24803e 60%);
+}
+.flower__g-right--1 {
+  -webkit-animation: flower-g-right-ans 2.5s linear infinite;
+          animation: flower-g-right-ans 2.5s linear infinite;
+}
+.flower__g-right--2 {
+  left: 5vmin;
+  transform: rotateY(-180deg);
+  -webkit-animation: flower-g-right-ans--2 3s linear infinite;
+          animation: flower-g-right-ans--2 3s linear infinite;
+}
+.flower__g-right--2 .leaf {
+  height: 75vmin;
+  filter: blur(0.3vmin);
+  opacity: 0.8;
+}
+@-webkit-keyframes flower-g-right-ans {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(24deg) rotateX(-20deg);
+  }
+}
+@keyframes flower-g-right-ans {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(24deg) rotateX(-20deg);
+  }
+}
+@-webkit-keyframes flower-g-right-ans--2 {
+  0%, 100% {
+    transform: rotateY(-180deg) rotate(0deg) rotateX(-20deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotate(6deg) rotateX(-20deg);
+  }
+}
+@keyframes flower-g-right-ans--2 {
+  0%, 100% {
+    transform: rotateY(-180deg) rotate(0deg) rotateX(-20deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotate(6deg) rotateX(-20deg);
+  }
+}
+.flower__g-front {
+  position: absolute;
+  bottom: 6vmin;
+  left: 2.5vmin;
+  z-index: 100;
+  transform-origin: bottom center;
+  transform: rotate(-28deg) rotateY(30deg) scale(1.04);
+  -webkit-animation: flower__g-front-ans 2s linear infinite;
+          animation: flower__g-front-ans 2s linear infinite;
+}
+@-webkit-keyframes flower__g-front-ans {
+  0%, 100% {
+    transform: rotate(-28deg) rotateY(30deg) scale(1.04);
+  }
+  50% {
+    transform: rotate(-35deg) rotateY(40deg) scale(1.04);
+  }
+}
+@keyframes flower__g-front-ans {
+  0%, 100% {
+    transform: rotate(-28deg) rotateY(30deg) scale(1.04);
+  }
+  50% {
+    transform: rotate(-35deg) rotateY(40deg) scale(1.04);
+  }
+}
+.flower__g-front__line {
+  width: 0.3vmin;
+  height: 20vmin;
+  background-image: linear-gradient(to top, transparent, #042e0b, transparent 100%);
+  position: relative;
+}
+.flower__g-front__leaf-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: bottom left;
+  transform: rotate(10deg);
+}
+.flower__g-front__leaf-wrapper:nth-child(even) {
+  left: 0vmin;
+  transform: rotateY(-180deg) rotate(5deg);
+  -webkit-animation: flower__g-front__leaf-left-ans 1s ease-in backwards;
+          animation: flower__g-front__leaf-left-ans 1s ease-in backwards;
+}
+.flower__g-front__leaf-wrapper:nth-child(odd) {
+  -webkit-animation: flower__g-front__leaf-ans 1s ease-in backwards;
+          animation: flower__g-front__leaf-ans 1s ease-in backwards;
+}
+.flower__g-front__leaf-wrapper--1 {
+  top: -8vmin;
+  transform: scale(0.7);
+  -webkit-animation: flower__g-front__leaf-ans 1s 5.5s ease-in backwards !important;
+          animation: flower__g-front__leaf-ans 1s 5.5s ease-in backwards !important;
+}
+.flower__g-front__leaf-wrapper--2 {
+  top: -8vmin;
+  transform: rotateY(-180deg) scale(0.7) !important;
+  -webkit-animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
+          animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
+}
+.flower__g-front__leaf-wrapper--3 {
+  top: -3vmin;
+  -webkit-animation: flower__g-front__leaf-ans 1s 4.6s ease-in backwards;
+          animation: flower__g-front__leaf-ans 1s 4.6s ease-in backwards;
+}
+.flower__g-front__leaf-wrapper--4 {
+  top: -3vmin;
+  transform: rotateY(-180deg) scale(0.9) !important;
+  -webkit-animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
+          animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
+}
+@-webkit-keyframes flower__g-front__leaf-left-ans-2 {
+  0% {
+    transform: rotateY(-180deg) scale(0);
+  }
+}
+@keyframes flower__g-front__leaf-left-ans-2 {
+  0% {
+    transform: rotateY(-180deg) scale(0);
+  }
+}
+.flower__g-front__leaf-wrapper--5, .flower__g-front__leaf-wrapper--6 {
+  top: 2vmin;
+}
+.flower__g-front__leaf-wrapper--7, .flower__g-front__leaf-wrapper--8 {
+  top: 6.5vmin;
+}
+.flower__g-front__leaf-wrapper--2 {
+  -webkit-animation-delay: 5.2s !important;
+          animation-delay: 5.2s !important;
+}
+.flower__g-front__leaf-wrapper--3 {
+  -webkit-animation-delay: 4.9s !important;
+          animation-delay: 4.9s !important;
+}
+.flower__g-front__leaf-wrapper--5 {
+  -webkit-animation-delay: 4.3s !important;
+          animation-delay: 4.3s !important;
+}
+.flower__g-front__leaf-wrapper--6 {
+  -webkit-animation-delay: 4.1s !important;
+          animation-delay: 4.1s !important;
+}
+.flower__g-front__leaf-wrapper--7 {
+  -webkit-animation-delay: 3.8s !important;
+          animation-delay: 3.8s !important;
+}
+.flower__g-front__leaf-wrapper--8 {
+  -webkit-animation-delay: 3.5s !important;
+          animation-delay: 3.5s !important;
+}
+@-webkit-keyframes flower__g-front__leaf-ans {
+  0% {
+    transform: rotate(10deg) scale(0);
+  }
+}
+@keyframes flower__g-front__leaf-ans {
+  0% {
+    transform: rotate(10deg) scale(0);
+  }
+}
+@-webkit-keyframes flower__g-front__leaf-left-ans {
+  0% {
+    transform: rotateY(-180deg) rotate(5deg) scale(0);
+  }
+}
+@keyframes flower__g-front__leaf-left-ans {
+  0% {
+    transform: rotateY(-180deg) rotate(5deg) scale(0);
+  }
+}
+.flower__g-front__leaf {
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 100% 0% 0% 100%/100% 100% 0% 0%;
+  box-shadow: inset 0 2px 1vmin hsla(184deg, 97%, 58%, 0.2);
+  background-image: linear-gradient(to bottom left, transparent, var(--dark-color)), linear-gradient(to bottom right, #064f0a 50%, transparent 50%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom right, #097149 50%, transparent 50%, transparent);
+  mask-image: linear-gradient(to bottom right, #0e8723 50%, transparent 50%, transparent);
+}
+.flower__g-fr {
+  position: absolute;
+  bottom: -4vmin;
+  left: vmin;
+  transform-origin: bottom left;
+  z-index: 10;
+  -webkit-animation: flower__g-fr-ans 2s linear infinite;
+          animation: flower__g-fr-ans 2s linear infinite;
+}
+@-webkit-keyframes flower__g-fr-ans {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes flower__g-fr-ans {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+.flower__g-fr .leaf {
+  width: 30vmin;
+  height: 50vmin;
+  border-top-left-radius: 100%;
+  border-left: 2vmin solid #147b47;
+  -webkit-mask-image: linear-gradient(to top, transparent 25%, #0e4e2a 50%);
+  position: relative;
+  z-index: 1;
+}
+.flower__g-fr__leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 100% 0% 0% 100%/100% 100% 0% 0%;
+  box-shadow: inset 0 2px 1vmin hsla(184deg, 97%, 58%, 0.2);
+  background-image: linear-gradient(to bottom left, transparent, var(--dark-color) 98%), linear-gradient(to bottom right, #106e18 45%, transparent 50%, transparent);
+  -webkit-mask-image: linear-gradient(135deg, #175f22 40%, transparent 50%, transparent);
+}
+.flower__g-fr__leaf--1 {
+  left: 20vmin;
+  transform: rotate(45deg);
+  -webkit-animation: flower__g-fr-leaft-ans-1 0.5s 5.2s linear backwards;
+          animation: flower__g-fr-leaft-ans-1 0.5s 5.2s linear backwards;
+}
+@-webkit-keyframes flower__g-fr-leaft-ans-1 {
+  0% {
+    transform-origin: left;
+    transform: rotate(45deg) scale(0);
+  }
+}
+@keyframes flower__g-fr-leaft-ans-1 {
+  0% {
+    transform-origin: left;
+    transform: rotate(45deg) scale(0);
+  }
+}
+.flower__g-fr__leaf--2 {
+  left: 12vmin;
+  top: -7vmin;
+  transform: rotate(25deg) rotateY(-180deg);
+  -webkit-animation: flower__g-fr-leaft-ans-6 0.5s 5s linear backwards;
+          animation: flower__g-fr-leaft-ans-6 0.5s 5s linear backwards;
+}
+.flower__g-fr__leaf--3 {
+  left: 15vmin;
+  top: 6vmin;
+  transform: rotate(55deg);
+  -webkit-animation: flower__g-fr-leaft-ans-5 0.5s 4.8s linear backwards;
+          animation: flower__g-fr-leaft-ans-5 0.5s 4.8s linear backwards;
+}
+.flower__g-fr__leaf--4 {
+  left: 6vmin;
+  top: -2vmin;
+  transform: rotate(25deg) rotateY(-180deg);
+  -webkit-animation: flower__g-fr-leaft-ans-6 0.5s 4.6s linear backwards;
+          animation: flower__g-fr-leaft-ans-6 0.5s 4.6s linear backwards;
+}
+.flower__g-fr__leaf--5 {
+  left: 10vmin;
+  top: 14vmin;
+  transform: rotate(55deg);
+  -webkit-animation: flower__g-fr-leaft-ans-5 0.5s 4.4s linear backwards;
+          animation: flower__g-fr-leaft-ans-5 0.5s 4.4s linear backwards;
+}
+@-webkit-keyframes flower__g-fr-leaft-ans-5 {
+  0% {
+    transform-origin: left;
+    transform: rotate(55deg) scale(0);
+  }
+}
+@keyframes flower__g-fr-leaft-ans-5 {
+  0% {
+    transform-origin: left;
+    transform: rotate(55deg) scale(0);
+  }
+}
+.flower__g-fr__leaf--6 {
+  left: 0vmin;
+  top: 6vmin;
+  transform: rotate(25deg) rotateY(-180deg);
+  -webkit-animation: flower__g-fr-leaft-ans-6 0.5s 4.2s linear backwards;
+          animation: flower__g-fr-leaft-ans-6 0.5s 4.2s linear backwards;
+}
+@-webkit-keyframes flower__g-fr-leaft-ans-6 {
+  0% {
+    transform-origin: right;
+    transform: rotate(25deg) rotateY(-180deg) scale(0);
+  }
+}
+@keyframes flower__g-fr-leaft-ans-6 {
+  0% {
+    transform-origin: right;
+    transform: rotate(25deg) rotateY(-180deg) scale(0);
+  }
+}
+.flower__g-fr__leaf--7 {
+  left: 5vmin;
+  top: 22vmin;
+  transform: rotate(45deg);
+  -webkit-animation: flower__g-fr-leaft-ans-7 0.5s 4s linear backwards;
+          animation: flower__g-fr-leaft-ans-7 0.5s 4s linear backwards;
+}
+@-webkit-keyframes flower__g-fr-leaft-ans-7 {
+  0% {
+    transform-origin: left;
+    transform: rotate(45deg) scale(0);
+  }
+}
+@keyframes flower__g-fr-leaft-ans-7 {
+  0% {
+    transform-origin: left;
+    transform: rotate(45deg) scale(0);
+  }
+}
+.flower__g-fr__leaf--8 {
+  left: -4vmin;
+  top: 15vmin;
+  transform: rotate(15deg) rotateY(-180deg);
+  -webkit-animation: flower__g-fr-leaft-ans-8 0.5s 3.8s linear backwards;
+          animation: flower__g-fr-leaft-ans-8 0.5s 3.8s linear backwards;
+}
+@-webkit-keyframes flower__g-fr-leaft-ans-8 {
+  0% {
+    transform-origin: right;
+    transform: rotate(15deg) rotateY(-180deg) scale(0);
+  }
+}
+@keyframes flower__g-fr-leaft-ans-8 {
+  0% {
+    transform-origin: right;
+    transform: rotate(15deg) rotateY(-180deg) scale(0);
+  }
+}
+
+.long-g {
+  position: absolute;
+  bottom: 25vmin;
+  left: -42vmin;
+  transform-origin: bottom left;
+}
+.long-g--1 {
+  bottom: 0vmin;
+  transform: scale(0.8) rotate(-5deg);
+}
+.long-g--1 .leaf {
+  -webkit-mask-image: linear-gradient(to top, transparent 40%, #196d2a 80%) !important;
+}
+.long-g--1 .leaf--1 {
+  --w: 5vmin;
+  --h: 60vmin;
+  left: -2vmin;
+  transform: rotate(3deg) rotateY(-180deg);
+}
+.long-g--2, .long-g--3 {
+  bottom: -3vmin;
+  left: -35vmin;
+  transform-origin: center;
+  transform: scale(0.6) rotateX(60deg);
+}
+.long-g--2 .leaf, .long-g--3 .leaf {
+  -webkit-mask-image: linear-gradient(to top, transparent 50%, #176220 80%) !important;
+}
+.long-g--2 .leaf--1, .long-g--3 .leaf--1 {
+  left: -1vmin;
+  transform: rotateY(-180deg);
+}
+.long-g--3 {
+  left: -17vmin;
+  bottom: 0vmin;
+}
+.long-g--3 .leaf {
+  -webkit-mask-image: linear-gradient(to top, transparent 40%, #176220 80%) !important;
+}
+.long-g--4 {
+  left: 25vmin;
+  bottom: -3vmin;
+  transform-origin: center;
+  transform: scale(0.6) rotateX(60deg);
+}
+.long-g--4 .leaf {
+  -webkit-mask-image: linear-gradient(to top, transparent 50%, #176220 80%) !important;
+}
+.long-g--5 {
+  left: 42vmin;
+  bottom: 0vmin;
+  transform: scale(0.8) rotate(2deg);
+}
+.long-g--6 {
+  left: 0vmin;
+  bottom: -20vmin;
+  z-index: 100;
+  filter: blur(0.3vmin);
+  transform: scale(0.8) rotate(2deg);
+}
+.long-g--7 {
+  left: 35vmin;
+  bottom: 20vmin;
+  z-index: -1;
+  filter: blur(0.3vmin);
+  transform: scale(0.6) rotate(2deg);
+  opacity: 0.7;
+}
+.long-g .leaf {
+  --w: 15vmin;
+  --h: 40vmin;
+  --c: #1aaa15;
+  position: absolute;
+  bottom: 0;
+  width: var(--w);
+  height: var(--h);
+  border-top-left-radius: 100%;
+  border-left: 2vmin solid var(--c);
+  -webkit-mask-image: linear-gradient(to top, transparent 20%, var(--dark-color));
+  transform-origin: bottom center;
+}
+.long-g .leaf--0 {
+  left: 2vmin;
+  -webkit-animation: leaf-ans-1 4s linear infinite;
+          animation: leaf-ans-1 4s linear infinite;
+}
+.long-g .leaf--1 {
+  --w: 5vmin;
+  --h: 60vmin;
+  -webkit-animation: leaf-ans-1 4s linear infinite;
+          animation: leaf-ans-1 4s linear infinite;
+}
+.long-g .leaf--2 {
+  --w: 10vmin;
+  --h: 40vmin;
+  left: -0.5vmin;
+  bottom: 5vmin;
+  transform-origin: bottom left;
+  transform: rotateY(-180deg);
+  -webkit-animation: leaf-ans-2 3s linear infinite;
+          animation: leaf-ans-2 3s linear infinite;
+}
+.long-g .leaf--3 {
+  --w: 5vmin;
+  --h: 30vmin;
+  left: -1vmin;
+  bottom: 3.2vmin;
+  transform-origin: bottom left;
+  transform: rotate(-10deg) rotateY(-180deg);
+  -webkit-animation: leaf-ans-3 3s linear infinite;
+          animation: leaf-ans-3 3s linear infinite;
+}
+
+@-webkit-keyframes leaf-ans-1 {
+  0%, 100% {
+    transform: rotate(-5deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+@keyframes leaf-ans-1 {
+  0%, 100% {
+    transform: rotate(-5deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+@-webkit-keyframes leaf-ans-2 {
+  0%, 100% {
+    transform: rotateY(-180deg) rotate(5deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotate(0deg) scale(1.1);
+  }
+}
+@keyframes leaf-ans-2 {
+  0%, 100% {
+    transform: rotateY(-180deg) rotate(5deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotate(0deg) scale(1.1);
+  }
+}
+@-webkit-keyframes leaf-ans-3 {
+  0%, 100% {
+    transform: rotate(-10deg) rotateY(-180deg);
+  }
+  50% {
+    transform: rotate(-20deg) rotateY(-180deg);
+  }
+}
+@keyframes leaf-ans-3 {
+  0%, 100% {
+    transform: rotate(-10deg) rotateY(-180deg);
+  }
+  50% {
+    transform: rotate(-20deg) rotateY(-180deg);
+  }
+}
+.grow-ans {
+  -webkit-animation: grow-ans 2s var(--d) backwards;
+          animation: grow-ans 2s var(--d) backwards;
+}
+
+@-webkit-keyframes grow-ans {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes grow-ans {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes light-ans {
+  0% {
+    opacity: 0;
+    transform: translateY(0vmin);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-5vmin) translateX(-2vmin);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-15vmin) translateX(2vmin);
+    filter: blur(0.2vmin);
+  }
+  75% {
+    transform: translateY(-20vmin) translateX(-2vmin);
+    filter: blur(0.2vmin);
+  }
+  100% {
+    transform: translateY(-30vmin);
+    opacity: 0;
+    filter: blur(1vmin);
+  }
+}
+@keyframes light-ans {
+  0% {
+    opacity: 0;
+    transform: translateY(0vmin);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-5vmin) translateX(-2vmin);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-15vmin) translateX(2vmin);
+    filter: blur(0.2vmin);
+  }
+  75% {
+    transform: translateY(-20vmin) translateX(-2vmin);
+    filter: blur(0.2vmin);
+  }
+  100% {
+    transform: translateY(-30vmin);
+    opacity: 0;
+    filter: blur(1vmin);
+  }
+}
+@-webkit-keyframes moving-flower-1 {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes moving-flower-1 {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+@-webkit-keyframes moving-flower-2 {
+  0%, 100% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+@keyframes moving-flower-2 {
+  0%, 100% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+@-webkit-keyframes moving-flower-3 {
+  0%, 100% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(-20deg) rotateY(-10deg);
+  }
+}
+@keyframes moving-flower-3 {
+  0%, 100% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(-20deg) rotateY(-10deg);
+  }
+}
+@-webkit-keyframes blooming-leaf-right {
+  0% {
+    transform-origin: left;
+    transform: rotate(70deg) rotateY(30deg) scale(0);
+  }
+}
+@keyframes blooming-leaf-right {
+  0% {
+    transform-origin: left;
+    transform: rotate(70deg) rotateY(30deg) scale(0);
+  }
+}
+@-webkit-keyframes blooming-leaf-left {
+  0% {
+    transform-origin: right;
+    transform: rotate(-70deg) rotateY(30deg) scale(0);
+  }
+}
+@keyframes blooming-leaf-left {
+  0% {
+    transform-origin: right;
+    transform: rotate(-70deg) rotateY(30deg) scale(0);
+  }
+}
+@-webkit-keyframes grow-flower-tree {
+  0% {
+    height: 0;
+    border-radius: 1vmin;
+  }
+}
+@keyframes grow-flower-tree {
+  0% {
+    height: 0;
+    border-radius: 1vmin;
+  }
+}
+@-webkit-keyframes blooming-flower {
+  0% {
+    transform: scale(0);
+  }
+}
+@keyframes blooming-flower {
+  0% {
+    transform: scale(0);
+  }
+}
+@-webkit-keyframes moving-grass {
+  0%, 100% {
+    transform: rotate(-48deg) rotateY(40deg);
+  }
+  50% {
+    transform: rotate(-50deg) rotateY(40deg);
+  }
+}
+@keyframes moving-grass {
+  0%, 100% {
+    transform: rotate(-48deg) rotateY(40deg);
+  }
+  50% {
+    transform: rotate(-50deg) rotateY(40deg);
+  }
+}
+@-webkit-keyframes moving-grass--2 {
+  0%, 100% {
+    transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg);
+  }
+  50% {
+    transform: scale(0.5) rotate(79deg) rotateX(10deg) rotateY(-200deg);
+  }
+}
+@keyframes moving-grass--2 {
+  0%, 100% {
+    transform: scale(0.5) rotate(75deg) rotateX(10deg) rotateY(-200deg);
+  }
+  50% {
+    transform: scale(0.5) rotate(79deg) rotateX(10deg) rotateY(-200deg);
+  }
+}
+.growing-grass {
+  -webkit-animation: growing-grass-ans 1s 2s backwards;
+          animation: growing-grass-ans 1s 2s backwards;
+}
+
+@-webkit-keyframes growing-grass-ans {
+  0% {
+    transform: scale(0);
+  }
+}
+
+@keyframes growing-grass-ans {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.container * {
+  -webkit-animation-play-state: paused !important;
+          animation-play-state: paused !important;
+}
+
+/* Animasi fade-in */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(120px); /* Efek slide ke atas */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+#rumput {
+  margin-top: -500px;
+  z-index: 9999999;
+}
+
+#balloon-container {
+    position: relative /* Tetap di posisi yang sama saat di-scroll tapi boong */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar tidak mengganggu interaksi pengguna */
+    z-index: -1; /* Tetap di belakang elemen lainnya */
+}
+
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 0, 0, 1));
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: floatUp 10s linear infinite;
+  opacity: 0.9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2; /* Pastikan balon berada di depan */
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; /* Posisi tali di bawah balon */
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #555; /* Warna tali */
+  transform: translateX(-50%);
+  animation: sway 2s ease-in-out infinite; /* Animasi bergoyang */
+  z-index: 1; /* Pastikan tali berada di belakang balon */
+}
+
+@keyframes floatUp {
+  0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0.9;
+  }
+  100% {
+      transform: translateY(-150px) scale(1.2);
+      opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+      transform: translateX(-50%) rotate(0deg); /* Posisi awal dan akhir */
+  }
+  50% {
+      transform: translateX(-50%) rotate(5deg); /* Goyangan ke kanan */
+  }
+}
+
+#wish {
+    position: relative; /* Pastikan posisi relatif untuk membatasi elemen anak */
+    overflow: hidden; /* Membatasi elemen agar tidak keluar dari section */
+    height: 100vh; /* Pastikan tinggi section sesuai kebutuhan */
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Sembunyikan semua elemen di dalam body */
+.body-hidden > *:not(#overlay) {
+    display: none;
+}
+
+/* Sembunyikan semua elemen di dalam body kecuali overlay */
+.body-hidden > * {
+    display: none;
+}
+
+.body-hidden > #overlay {
+    display: flex; /* Pastikan overlay tetap terlihat */
+}
+
+.polaroid {
+  height: auto;
+  position: relative;
+  display: flex;
+  margin-left: -650px;
+  
+}
+
+#countdown {
+  font-size: 3rem; /* Ukuran font lebih besar */
+  font-weight: bold; /* Membuat teks lebih tebal */
+  color: #ff5722; /* Gunakan warna yang sama dengan h2 */
+  text-align: center; /* Pusatkan teks */
+  margin-top: 20px; /* Tambahkan jarak atas */
+}
