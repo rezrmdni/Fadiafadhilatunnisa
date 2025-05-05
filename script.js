@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const content = document.getElementById('content');
     const overlay = document.getElementById('overlay');
     const backgroundMusic = document.getElementById('backgroundMusic');
-    const targetDate = new Date('2025-05-05T09:00:00').getTime();
+    const targetDate = new Date('2025-05-05T09:20:00').getTime();
 
     if (countdownElement && countdownContainer && content && overlay && backgroundMusic) {
         document.body.classList.add('body-hidden');
